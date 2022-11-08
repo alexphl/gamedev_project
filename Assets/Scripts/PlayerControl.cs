@@ -39,6 +39,11 @@ public class PlayerControl : MonoBehaviour
             controller.Move(moveHorizontal * speed * Time.deltaTime);
         }
 
+        // Update pivot rotations
+        if (Input.GetAxisRaw("Vertical") != 0f || Input.GetAxisRaw("Horizontal") != 0f) {
+            transform.rotation = Quaternion.Euler(0f, pivot.eulerAngles.y, 0f);
+        }
+
         controller.Move(moveVertical * Time.deltaTime);
     }
 }
