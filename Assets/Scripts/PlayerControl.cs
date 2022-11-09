@@ -45,14 +45,27 @@ public class PlayerControl : MonoBehaviour
         controller.Move(moveVertical * Time.deltaTime);
     }
 
+    // Rotates player towards the mouse pointer
     private void LookAtCursor()
     {
+        var (aimable, lookDir) = getLookDir();
+        if (aimable) {transform.forward = lookDir;}
+    }
+
+    // "valid" may be false if the surface is not aimable (ie HUD) or if raycasting fails
+    private (bool valid, Vector3 lookDir) getLookDir()
+    {
+        Vector3 lookDir = new Vector3();
         var ray = camera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out var hitInfo, Mathf.Infinity, groundMask))
         {
-            Vector3 lookDir = hitInfo.point - transform.position;
-            lookDir.y = 0;
-            transform.forward = lookDir;
+            lookDir = hitInfo.point - transform.position;
+            lookDir.y = 0; // ignore y axis
+            return (valid: true, lookDir: lookDir);
+        }
+
+        else {
+            return (valid: false, lookDir: lookDir);
         }
     }
 }
