@@ -38,7 +38,7 @@ public class PlayerControl : MonoBehaviour
 
         if (moveHorizontal.magnitude > 0f)
         {
-            controller.Move(moveHorizontal * speed * Time.deltaTime);
+            controller.Move(moveHorizontal.normalized * speed * Time.deltaTime);
         }
 
         controller.Move(moveVertical * Time.deltaTime);
