@@ -569,9 +569,8 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 1
-  speed: 3
+  speed: 5
   gravity: 9.8
-  moveSpeed: 0
   rotationSpeed: 0
 --- !u!143 &1538326293
 CharacterController:

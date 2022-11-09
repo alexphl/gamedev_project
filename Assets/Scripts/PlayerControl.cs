@@ -13,7 +13,6 @@ public class PlayerControl : MonoBehaviour
 
     public float speed = 3f;
     public float gravity = 9.8f;
-    public float moveSpeed;
     public float rotationSpeed;
 
     private Vector3 moveHorizontal = Vector3.zero;
