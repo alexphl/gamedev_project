@@ -7,7 +7,9 @@ public class PlayerControl : MonoBehaviour
     public CharacterController controller;
     public Transform player;
     public Animator animator;
-    public Transform pivot;     // Used to decouple camera controls from player rotations
+    public Transform pivot;         // Used to decouple camera controls from player rotations
+    public LayerMask groundMask;    // Used to disable aiming when hovering over HUD
+    private Camera camera;
 
     public float speed = 3f;
     public float gravity = 9.8f;
@@ -18,16 +20,18 @@ public class PlayerControl : MonoBehaviour
     private Vector3 moveVertical = Vector3.zero;
 
     void Start() {
+        camera = Camera.main;
         controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        move();
+        Move();
+        LookAtCursor();
     }
 
-    void move()
+    private void Move()
     {
         moveHorizontal = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         moveVertical.y = moveVertical.y < 0f ? -2f : moveVertical.y;
@@ -35,15 +39,20 @@ public class PlayerControl : MonoBehaviour
 
         if (moveHorizontal.magnitude > 0f)
         {
-            //rotatePlayer();
             controller.Move(moveHorizontal * speed * Time.deltaTime);
         }
 
-        // Update pivot rotations
-        if (Input.GetAxisRaw("Vertical") != 0f || Input.GetAxisRaw("Horizontal") != 0f) {
-            transform.rotation = Quaternion.Euler(0f, pivot.eulerAngles.y, 0f);
-        }
-
         controller.Move(moveVertical * Time.deltaTime);
+    }
+
+    private void LookAtCursor()
+    {
+        var ray = camera.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out var hitInfo, Mathf.Infinity, groundMask))
+        {
+            Vector3 lookDir = hitInfo.point - transform.position;
+            lookDir.y = 0;
+            transform.forward = lookDir;
+        }
     }
 }

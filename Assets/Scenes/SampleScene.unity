@@ -566,6 +566,9 @@ MonoBehaviour:
   player: {fileID: 1538326296}
   animator: {fileID: 0}
   pivot: {fileID: 714472563}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 1
   speed: 3
   gravity: 9.8
   moveSpeed: 0

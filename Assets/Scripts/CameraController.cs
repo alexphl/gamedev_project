@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
 
         pivot.transform.position = target.transform.position;
         pivot.transform.parent = null;
@@ -20,13 +20,15 @@ public class CameraController : MonoBehaviour {
 
     }
 
-    // Called after Update to prevent jitter
+    // Final camera transforms should be called after Update to prevent jitter
     void LateUpdate() {
         UpdateCamera();
     }
 
     void UpdateCamera() {
-        Quaternion rotation = Quaternion.Euler(pivot.eulerAngles.x, pivot.eulerAngles.y, 0f);
+        // We may want to implement camera rotation so I'm leaving this in
+        Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
+
         transform.position = target.position - (rotation * offset);
 
         transform.LookAt(target);
