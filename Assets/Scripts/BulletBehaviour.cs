@@ -6,7 +6,7 @@ public class BulletBehaviour : MonoBehaviour
 {
     public float damage = 1f;
     public float velocity = 1f;
-    public float range = 5f;
+    public float timeToLive = 5f;
 
     private float raycastLength = 0.5f;
     private float timer = 0f;
@@ -23,7 +23,7 @@ public class BulletBehaviour : MonoBehaviour
         }
 
         timer += Time.deltaTime;
-        if (timer >= range) {
+        if (timer >= timeToLive) {
             Destroy(gameObject);
         }
     }
