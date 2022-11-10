@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class BallisticWeapon : MonoBehaviour
 {
-    public float damage = 1f;
-    public float range = 10f;
-    public int numberOfProjectiles = 1;
+    public GameObject bulletModel;
     public bool isAutomatic = false;
+    public int numberOfProjectiles = 1;
     public float rateOfFire = 1f;
 
     // Start is called before the first frame update
@@ -25,9 +24,6 @@ public class BallisticWeapon : MonoBehaviour
     }
 
     void Shoot() {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.up, out hit, range)) {
-            Debug.Log(hit.transform.name);
-        }
+        Instantiate(bulletModel, transform.position, transform.rotation);
     }
 }
