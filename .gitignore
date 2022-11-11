@@ -11,6 +11,10 @@
 /[Mm]emoryCaptures/
 /[Uu]serSettings/
 
+# Visual Studio cache directory
+/[Hh]ooks/
+/[Ll]fs/
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
