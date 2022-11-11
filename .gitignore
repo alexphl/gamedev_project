@@ -11,7 +11,7 @@
 /[Mm]emoryCaptures/
 /[Uu]serSettings/
 
-# Visual Studio cache directory
+# Make sure we don't commit LFS artifacts
 /[Hh]ooks/
 /[Ll]fs/
 
