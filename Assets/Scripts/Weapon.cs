@@ -6,8 +6,9 @@ public class Weapon : MonoBehaviour
 {
     public GameObject bulletModel;
     public bool isAutomatic = false;
-    public int numberOfProjectiles = 1; // projectiles to be fired TODO
     public float rateOfFire = 100f;
+    public float spread = 20f;
+    public int numberOfProjectiles = 1; // projectiles to be fired TODO
 
     private float cooldown = 0f; // time to wait between shots
     private float rateFactor = 100f; // for scaling the rate of fire, numbers have to be 1, 10, 100, etc.
@@ -35,6 +36,11 @@ public class Weapon : MonoBehaviour
     void Shoot() {
         // muzzle flash
         // sound
-        Instantiate(bulletModel, transform.position, transform.rotation);
+        Vector3 projectileTilt = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+        for (int i = 0; i < numberOfProjectiles; i++) {
+            Instantiate(bulletModel, transform.position, Quaternion.Euler(projectileTilt));
+            projectileTilt.y = transform.eulerAngles.y;
+            projectileTilt.y += Random.Range(-spread, spread);
+        }
     }
 }

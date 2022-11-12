@@ -237,8 +237,9 @@ MonoBehaviour:
   bulletModel: {fileID: 8967353169358101355, guid: 19134e05d0659b540b217e4ba412d926,
     type: 3}
   isAutomatic: 0
-  numberOfProjectiles: 1
-  rateOfFire: 500
+  rateOfFire: 100
+  spread: 10
+  numberOfProjectiles: 9
 --- !u!1 &298621580
 GameObject:
   m_ObjectHideFlags: 0
