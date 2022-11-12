@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallisticWeapon : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     public GameObject bulletModel;
     public bool isAutomatic = false;
-    public int numberOfProjectiles = 1;
+    public int numberOfProjectiles = 1; // projectiles to be fired TODO
     public float rateOfFire = 100f;
 
     private float cooldown = 0f; // time to wait between shots
@@ -33,6 +33,8 @@ public class BallisticWeapon : MonoBehaviour
     }
 
     void Shoot() {
+        // muzzle flash
+        // sound
         Instantiate(bulletModel, transform.position, transform.rotation);
     }
 }

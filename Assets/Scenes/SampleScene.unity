@@ -238,7 +238,7 @@ MonoBehaviour:
     type: 3}
   isAutomatic: 0
   numberOfProjectiles: 1
-  rateOfFire: 1
+  rateOfFire: 500
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
