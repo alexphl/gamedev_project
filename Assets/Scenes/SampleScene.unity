@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d4ccda4e219924fac8114f6778af1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletModel: {fileID: 8967353169358101355, guid: 19134e05d0659b540b217e4ba412d926,
+  bulletModel: {fileID: 5913501915493138972, guid: cec714cc8aa08d54d89c74b0df397d81,
     type: 3}
   isAutomatic: 0
   rateOfFire: 100
