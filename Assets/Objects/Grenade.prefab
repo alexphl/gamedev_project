@@ -112,6 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c3fc6f37f2b2149b16755fae6d0629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detonationFX: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    type: 3}
   damage: 1
   fuseTime: 3
   detonationRadius: 5

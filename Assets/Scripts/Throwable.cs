@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Throwable : MonoBehaviour {
-    //public GameObject detonationFX;
+    public GameObject detonationFX;
     public float damage = 1f;
     public float fuseTime = 3f; // time before it detonates
     public float detonationRadius = 4f;
@@ -18,7 +18,7 @@ public class Throwable : MonoBehaviour {
     }
 
     void Detonate() {
-        // Instantiate(detonationFX, transform.position, transform.rotation);
+        Instantiate(detonationFX, transform.position, transform.rotation);
         Collider[] affectedObjects = Physics.OverlapSphere(transform.position, detonationRadius); // gets detonation affected gameobjects
 
         foreach (Collider affectedObject in affectedObjects) {
