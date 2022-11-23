@@ -36,7 +36,7 @@ public class Weapon : MonoBehaviour
     void Shoot() {
         // muzzle flash
         // sound
-        Vector3 projectileTilt = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+        Vector3 projectileTilt = new Vector3(transform.eulerAngles.x - 90, transform.eulerAngles.y, transform.eulerAngles.z);
         for (int i = 0; i < numberOfProjectiles; i++) {
             Instantiate(bulletModel, transform.position, Quaternion.Euler(projectileTilt));
             projectileTilt.y = transform.eulerAngles.y;
