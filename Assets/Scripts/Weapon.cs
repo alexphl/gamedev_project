@@ -5,6 +5,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     public GameObject bulletModel;
+    public GameObject flashFX;
+    public float muzzleOffset = 1f; // how much more in front is the muzzle relative to weapon
     public bool isAutomatic = false;
     public float rateOfFire = 100f;
     public float spread = 20f;
@@ -34,11 +36,18 @@ public class Weapon : MonoBehaviour
     }
 
     void Shoot() {
-        // muzzle flash
+        Vector3 muzzlePosition = transform.position - transform.forward * muzzleOffset;
+
+        // Muzzle flash
+        Vector3 flashRotation = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 180, transform.eulerAngles.z);
+        Instantiate(flashFX, muzzlePosition, Quaternion.Euler(flashRotation));
+
         // sound
+
+        // Projectiles
         Vector3 projectileTilt = new Vector3(transform.eulerAngles.x - 90, transform.eulerAngles.y, transform.eulerAngles.z);
         for (int i = 0; i < numberOfProjectiles; i++) {
-            Instantiate(bulletModel, transform.position, Quaternion.Euler(projectileTilt));
+            Instantiate(bulletModel, muzzlePosition, Quaternion.Euler(projectileTilt));
             projectileTilt.y = transform.eulerAngles.y;
             projectileTilt.y += Random.Range(-spread, spread);
         }
