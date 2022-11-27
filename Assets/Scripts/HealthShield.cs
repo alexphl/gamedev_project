@@ -36,8 +36,8 @@ public class HealthShield : MonoBehaviour {
     }
 
     public void DoDamage(float damage) {
-        if (shield > 0) {
-            timer = timeBeforeRegen;
+        timer = timeBeforeRegen;
+        if (shield >= maxShield) {
             shield -= maxShield;
         }
         else {
