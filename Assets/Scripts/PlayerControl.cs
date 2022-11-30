@@ -7,7 +7,6 @@ public class PlayerControl : MonoBehaviour
     public CharacterController controller;
     public Transform player;
     public Animator animator;
-    public Transform pivot;         // Used to decouple camera controls from player rotations
     public LayerMask groundMask;    // Used to disable aiming when hovering over HUD
     private Camera camera;
 
