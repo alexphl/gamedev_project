@@ -187,8 +187,9 @@ MonoBehaviour:
   muzzleOffset: 1
   isAutomatic: 0
   rateOfFire: 100
-  spread: 20
-  numberOfProjectiles: 9
+  spread: 25
+  numberOfProjectiles: 12
+  isEquipped: 0
 --- !u!1 &2669269972186987623
 GameObject:
   m_ObjectHideFlags: 0
