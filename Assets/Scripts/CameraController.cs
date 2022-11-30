@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
     public Transform target; // Usually the player
-    public Transform pivot; // Used to decouple camera controls from player rotations
     public Vector3 offset; // Camera position relative to the player
 
     // Start is called before the first frame update
     void Start() {
         //Cursor.lockState = CursorLockMode.Locked;
-
-        pivot.transform.position = target.transform.position;
-        pivot.transform.parent = null;
     }
 
     // Update is called once per frame
