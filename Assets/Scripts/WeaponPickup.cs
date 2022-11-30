@@ -9,14 +9,14 @@ public class WeaponPickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
       
-            Debug.Log("check");
-            if (other.transform.tag == "Player")
-            {
+            //Debug.Log("check");
+        if (other.transform.tag == "Player")
+        {
             gameObject.SetActive(false);
             foreach (Transform transform in other.transform)
+            {
+                if (transform.CompareTag("Weapon"))
                 {
-                    if (transform.CompareTag("Weapon"))
-                    {
                     weapon.transform.SetParent(other.transform);
                     weapon.transform.position = transform.position;
                     weapon.transform.rotation = transform.rotation;
@@ -24,8 +24,8 @@ public class WeaponPickup : MonoBehaviour
                     weapon.isEquipped = true;
                     Destroy(transform.gameObject);
                     break;
-                    }
                 }
+            }
             
 
 

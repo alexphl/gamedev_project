@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour {
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.up, out hit, raycastLength)) {
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
             if(hit.transform.tag == "Enemy")
             {
                 hit.transform.GetComponent<Enemy>().GetHit();

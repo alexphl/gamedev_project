@@ -23,14 +23,14 @@ public class EnemyWeapon : MonoBehaviour
     {
         if (shootFlag)
         {
-            
+
             if (isAutomatic)
             {
                 Shoot();
             }
             else if (slowFlag == false)
             {
-                Debug.Log("Shootin");
+                //Debug.Log("Shootin");
                 slowFlag = true;
                 StartCoroutine(SlowShoot());
             }
@@ -58,14 +58,11 @@ public class EnemyWeapon : MonoBehaviour
             projectileTilt.y += Random.Range(-spread, spread);
         }
 
-        
-
-       
     }
 
     private IEnumerator SlowShoot()
     {
-        
+
         while (shootFlag && slowFlag)
         {
             Shoot();
