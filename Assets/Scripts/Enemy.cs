@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (threatFlag)
+        if (threatFlag && player)
         {
             Threaten();
         }
@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
 
     private void Threaten()
     {
-        MoveTo(player);
+        MoveTo(player.transform);
     }
 
     public void Respawn()
@@ -97,6 +97,7 @@ public class Enemy : MonoBehaviour
 
     private void CheckForThreat()
     {
+        if (!player) return;
 
         if ((player.transform.position - this.transform.position).sqrMagnitude < 10 * 10)
         {
@@ -123,8 +124,10 @@ public class Enemy : MonoBehaviour
     }
 
     //Logic to move towards player
-    private void MoveTo(GameObject destination)
+    private void MoveTo(Transform destination)
     {
+        if (!destination) return;
+
         Transform objectTransform = destination.transform;
         body.velocity = new Vector3(0, body.velocity.y, 0);
         float distance = speed * Time.deltaTime;

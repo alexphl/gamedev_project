@@ -22,10 +22,9 @@ public class CameraController : MonoBehaviour {
     }
 
     void UpdateCamera() {
-        // We may want to implement camera rotation so I'm leaving this in
-        Quaternion rotation = Quaternion.Euler(0f, 0f, 0f);
+        if (!target) return;
 
-        transform.position = target.position - (rotation * offset);
+        transform.position = target.position - offset;
 
         transform.LookAt(target);
     }

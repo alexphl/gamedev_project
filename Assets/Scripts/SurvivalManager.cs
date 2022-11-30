@@ -36,7 +36,7 @@ public class SurvivalManager : MonoBehaviour
         }
 
         // TODO: This should really be done elsewhere
-        if (player.GetComponent<Player>().health <= 0)
+        if (player && player.GetComponent<Player>().health <= 0)
         {
             Destroy(player);
         }
