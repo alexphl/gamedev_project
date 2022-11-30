@@ -4,39 +4,26 @@ using UnityEngine;
 
 public class SurvivalManager : MonoBehaviour
 {
-    public GameObject spawnPoints;
-    public float spawnTimer;
-    public GameObject enemy1;
-    public GameObject enemy4;
-    public GameObject enemy3;
-    public GameObject enemy2;
-
-    int playerHealth;
-
-    float timer;
-
     public GameObject player;
+    public GameObject[] enemies;
+    public Transform spawnPoints;
+    private Transform[] spawns;
 
-    GameObject[] spawns = new GameObject[16];
-    GameObject[] enemies = new GameObject[4];
+    public float spawnTimer;
+    private float timer;
+
     // Start is called before the first frame update
     void Start()
     {
         timer = spawnTimer;
-        
+        spawns = new Transform[spawnPoints.childCount];
 
-        enemies[0] = enemy1;
-        enemies[1] = enemy4;
-        enemies[2] = enemy3;
-        enemies[3] = enemy2;
         int i = 0;
-        foreach (Transform t in spawnPoints.transform)
+        foreach (Transform t in spawnPoints)
         {
-            spawns[i] = t.gameObject;
+            spawns[i] = t;
             i++;
         }
-        
-        
     }
 
     private void Update()
@@ -48,9 +35,8 @@ public class SurvivalManager : MonoBehaviour
             timer = spawnTimer;
         }
 
-        playerHealth = player.GetComponent<Player>().health;
-
-        if (playerHealth <= 0)
+        // TODO: This should really be done elsewhere
+        if (player.GetComponent<Player>().health <= 0)
         {
             Destroy(player);
         }
@@ -58,30 +44,27 @@ public class SurvivalManager : MonoBehaviour
 
     private void SpawnEnemies()
     {
-        int[] intArray = new int[8];
+        int[] intArray = new int[enemies.Length * 2];
         
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < intArray.Length; i++)
         {
             intArray[i] = Mathf.FloorToInt(Random.Range(0, 15.9f));
         }
+
         int j = 0;
-        foreach (GameObject go in spawns)
+        foreach (Transform go in spawns)
         {
             foreach (int i in intArray)
             {
                 if (i == j)
                 {
-
-                    int indexer = j % 4;
+                    int indexer = j % enemies.Length;
                     
-                    Instantiate(enemies[indexer], spawns[i].transform.position, Quaternion.identity);
-                    
+                    Instantiate(enemies[indexer], spawns[i].position, Quaternion.identity);
                 }
             }
+
             j++;
         }
-
-        
     }
-
 }
