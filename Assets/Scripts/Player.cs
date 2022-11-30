@@ -7,16 +7,19 @@ public class Player : MonoBehaviour
 {
     public int health;
     int startingHealth;
-    public GameObject spawn;
+    public Transform spawn;
 
     public float invincibility = 500f;
     private bool canBeHit = true;
 
     private void Start()
     {
+        if (!spawn) {
+            spawn = transform;
+        }
+
         startingHealth = health;
         Spawn();
-        
     }
 
     public void GetHit()
@@ -54,9 +57,7 @@ public class Player : MonoBehaviour
     { 
         this.GetComponent<Renderer>().material.color = Color.green;
         health = startingHealth;
-        transform.position = spawn.transform.position;
-        
-
+        transform.position = spawn.position;
     }
 
 }
