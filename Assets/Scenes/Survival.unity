@@ -736,6 +736,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5518596373056150016, guid: b285a90c67c7b164e951f8716efd46e6,
+        type: 3}
+      propertyPath: field of view
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 5518596373056150019, guid: b285a90c67c7b164e951f8716efd46e6,
         type: 3}
       propertyPath: m_RootOrder
@@ -801,6 +806,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 255883567}
+    - target: {fileID: 5518596373056150021, guid: b285a90c67c7b164e951f8716efd46e6,
+        type: 3}
+      propertyPath: offset.y
+      value: -18.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5518596373056150030, guid: b285a90c67c7b164e951f8716efd46e6,
         type: 3}
       propertyPath: m_Name

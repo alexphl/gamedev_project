@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1893155802448922443}
   - component: {fileID: 4440866329743913857}
   - component: {fileID: 6139068093472891596}
-  - component: {fileID: 3889069077387448155}
   - component: {fileID: 3054797052366375810}
   m_Layer: 0
   m_Name: PistolBullet
@@ -101,23 +100,6 @@ MonoBehaviour:
   damage: 10
   velocity: 35
   timeToLive: 1
---- !u!114 &3889069077387448155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2783748031098344020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 7706b9ef4422749c3904067eb5cad851, type: 2}
 --- !u!96 &3054797052366375810
 TrailRenderer:
   serializedVersion: 2
@@ -169,7 +151,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.70408165
+        value: 0.1224466
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -177,8 +159,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
-        value: 0.34693965
+        time: 0.39239502
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -220,8 +202,8 @@ TrailRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 3
-    shadowBias: 0.5
+    textureMode: 0
+    shadowBias: 0.57
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 1
