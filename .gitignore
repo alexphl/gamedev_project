@@ -15,6 +15,13 @@
 /[Hh]ooks/
 /[Ll]fs/
 
+# Project builds
+/GameDev\ Project_BurstDebugInformation_DoNotShip/
+/GameDev\ Project_Data/
+/MonoBleedingEdge/
+*.dll
+*.exe
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 
@@ -102,6 +109,7 @@ Thumbs.db.meta
 
 # Editors
 *.vscode
+.vsconfig
 .fleet
 
 # Ignore imports
