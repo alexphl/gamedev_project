@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 1167869168053104354}
   m_Layer: 0
   m_Name: Pistol
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,12 +266,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d4ccda4e219924fac8114f6778af1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletModel: {fileID: 2783748031098344020, guid: 5b32086698631da43a3a7a4f7bc257b4,
+  bulletModel: {fileID: 5913501915493138972, guid: cec714cc8aa08d54d89c74b0df397d81,
     type: 3}
+  flashFX: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
+  muzzleOffset: 1
   isAutomatic: 0
   rateOfFire: 300
   spread: 20
   numberOfProjectiles: 1
+  isEquipped: 0
 --- !u!1 &1162624828652245559
 GameObject:
   m_ObjectHideFlags: 0

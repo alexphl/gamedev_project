@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 2670220920340769103}
   m_Layer: 0
   m_Name: Shotgun
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +183,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletModel: {fileID: 5913501915493138972, guid: cec714cc8aa08d54d89c74b0df397d81,
     type: 3}
+  flashFX: {fileID: 0}
+  muzzleOffset: 1
   isAutomatic: 0
   rateOfFire: 100
   spread: 20

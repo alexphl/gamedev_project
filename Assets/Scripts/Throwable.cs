@@ -25,6 +25,10 @@ public class Throwable : MonoBehaviour {
             Rigidbody rb = affectedObject.GetComponent<Rigidbody>();
             if (rb != null) {
                 rb.AddExplosionForce(detonationForce, transform.position, detonationRadius);
+                if(rb.gameObject.tag == "Enemy")
+                {
+                    rb.gameObject.GetComponent<Enemy>().GetHit();
+                }
             }
 
             // damage objects - TODO

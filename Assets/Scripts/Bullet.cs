@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float damage = 1f;
-    public float velocity = 1f;
+    public float velocity = 0.2f;
     public float timeToLive = 5f;
 
     private float raycastLength = 0.5f;
@@ -19,6 +19,14 @@ public class Bullet : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.up, out hit, raycastLength)) {
             Debug.Log(hit.transform.name);
+            if(hit.transform.tag == "Enemy")
+            {
+                hit.transform.GetComponent<Enemy>().GetHit();
+            }
+            else if (hit.transform.tag == "Player")
+            {
+                hit.transform.GetComponent<Player>().GetHit();
+            }
             Destroy(gameObject);
         }
 
