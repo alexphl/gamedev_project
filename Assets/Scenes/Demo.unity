@@ -1540,7 +1540,7 @@ PrefabInstance:
         type: 3}
       propertyPath: pivot
       value: 
-      objectReference: {fileID: 1230908587548276707}
+      objectReference: {fileID: 0}
     - target: {fileID: 5518596373056150021, guid: b285a90c67c7b164e951f8716efd46e6,
         type: 3}
       propertyPath: target
@@ -7352,12 +7352,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f60fe1b7245fb40a906f40cc2eca40, type: 3}
---- !u!4 &1230908587548276707 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6648957259905836006, guid: 8a856ae033347f24aa8b84a911249c62,
-    type: 3}
-  m_PrefabInstance: {fileID: 5571172301086118917}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1230908587802358920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6648957258008109197, guid: 8a856ae033347f24aa8b84a911249c62,
@@ -7588,7 +7582,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawn
       value: 
-      objectReference: {fileID: 867841425}
+      objectReference: {fileID: 0}
     - target: {fileID: 6648957258008109190, guid: 8a856ae033347f24aa8b84a911249c62,
         type: 3}
       propertyPath: m_Name
