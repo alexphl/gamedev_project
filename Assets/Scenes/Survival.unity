@@ -258,6 +258,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5571172300431819763, guid: 8a856ae033347f24aa8b84a911249c62,
+        type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6648957258008109190, guid: 8a856ae033347f24aa8b84a911249c62,
         type: 3}
       propertyPath: m_Name
@@ -1342,14 +1347,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac97d4508435eac4c97d7675c515bf8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints: {fileID: 0}
   player: {fileID: 255883561}
-  spawnTimer: 1000
   enemies:
   - {fileID: 7629869244768811755, guid: 0310c23b1b6d8524aaa3be79e0811246, type: 3}
   - {fileID: 8284936892193164453, guid: efce54e925fc53149a3ebe0b74975ba2, type: 3}
   - {fileID: 1867335269685667863, guid: 98d4351e9fdaaec44a8e23f2bba7c54f, type: 3}
   - {fileID: 841933637018341279, guid: 5be6a613eb72f9e4496efdecd75cf27d, type: 3}
+  spawnPoints: {fileID: 1754833810}
+  spawnTimer: 10000
 --- !u!4 &1075500693
 Transform:
   m_ObjectHideFlags: 0
