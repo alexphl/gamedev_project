@@ -28,7 +28,8 @@ public class Bullet : MonoBehaviour {
             // We've hit player, deduce health/shield
             if (hit.transform.gameObject.CompareTag("Player")) {
                 HealthShield healthScript = hit.transform.gameObject.GetComponent<HealthShield>();
-                healthScript.DoDamage(damage);
+
+                if (healthScript) healthScript.DoDamage(damage);
             }
             Destroy(gameObject);
         }
