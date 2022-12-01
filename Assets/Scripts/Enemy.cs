@@ -153,8 +153,17 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            StartCoroutine(flashRed());
             //enemyAnimator.Play("gothit");
         }
+    }
+
+    private IEnumerator flashRed()
+    {
+        var temp = this.GetComponent<Renderer>().material.color;
+        this.GetComponent<Renderer>().material.color = Color.red;
+        yield return new WaitForSeconds(1/6f);
+        this.GetComponent<Renderer>().material.color = temp;
     }
 
     private IEnumerator Die()
