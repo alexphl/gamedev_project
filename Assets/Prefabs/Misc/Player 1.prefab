@@ -122,11 +122,10 @@ MonoBehaviour:
   controller: {fileID: 6648957258008109184}
   player: {fileID: 6648957258008109197}
   animator: {fileID: 0}
-  pivot: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 1
-  speed: 8
+  speed: 9
   gravity: 9.8
   rotationSpeed: 0
 --- !u!114 &5571172300431819763
