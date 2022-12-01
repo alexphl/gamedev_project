@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         {
             Idle();
         }
-        if (shootFlag)
+        if (shootFlag && player)
         {
             Shoot();
         }
@@ -97,7 +97,12 @@ public class Enemy : MonoBehaviour
 
     private void CheckForThreat()
     {
-        if (!player) return;
+        if (!player) {
+            threatFlag = false;
+            shootFlag = false;
+            weapon.StopShoot();
+            return;
+        }
 
         if ((player.transform.position - this.transform.position).sqrMagnitude < 10 * 10)
         {
@@ -112,7 +117,6 @@ public class Enemy : MonoBehaviour
         {
             threatFlag = true;
             moveFlag = true;
-            
         }
         
         else
