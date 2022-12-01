@@ -5,41 +5,49 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public bool color = true;
     public float speed;
-    private bool threatFlag = false;
-    private bool moveFlag;
-    //private Animation enemyAnimator;
-    GameObject player;
-    public GameObject spawn;
-    Rigidbody body;
-    private bool idleFlag;
-
     public int health = 1;
-    private bool isAlive = true;
+
+    private int pursueDistance = 420;    // distance at which AI sees player
+    private int minPlayerDistance = 75;  // how close the AI can get (smaller = closer)
+    private int shootDistance; // Enemies begin shooting at half their pursuit distance
+
+    private float moveSpeed;    // these are derived from speed
+    private float moveShootSpeed;
+
+    private bool isAlive;
+    private bool pursueFlag;
+    private bool idleFlag;
     private bool shootFlag;
 
+    //private Animation enemyAnimator;
+    public GameObject player;
+    public GameObject spawn;
+    public Rigidbody body;
     public EnemyWeapon weapon;
 
-    // Start is called before the first frame update
     void Start()
     {
+        moveSpeed = speed;
+        moveShootSpeed = moveSpeed / 2;
+
         body = gameObject.GetComponent<Rigidbody>();
         //enemyAnimator = gameObject.GetComponent<Animation>();
         player = GameObject.Find("Player");
+        shootDistance = pursueDistance / 2;
+
         StartCoroutine(Spawn(0));
-        idleFlag = true;
-        if (color) this.GetComponent<Renderer>().material.color = Color.blue;
+
+        this.GetComponent<Renderer>().material.color = Color.blue;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (threatFlag && player)
+        if (pursueFlag && player)
         {
-            Threaten();
+            Pursue();
         }
-        else if (moveFlag)
+        else if (!pursueFlag)
         {
             GoHome();
         }
@@ -47,26 +55,68 @@ public class Enemy : MonoBehaviour
         {
             Idle();
         }
+
         if (shootFlag && player)
         {
-            Shoot();
+            speed = moveShootSpeed;
+            weapon.StartShoot();
+        }
+        else
+        {
+            speed = moveSpeed;
+            weapon.StopShoot();
         }
     }
 
-    private void Shoot()
+    private void FixedUpdate()
     {
-        weapon.StartShoot();
+        if (isAlive) CheckForThreat();
+    }
+
+    private void CheckForThreat()
+    {
+        if (!player) {
+            pursueFlag = false;
+            shootFlag = false;
+        }
+
+        // Stop and shoot
+        else if ((player.transform.position - this.transform.position).sqrMagnitude < minPlayerDistance)
+        {
+            pursueFlag = false;
+            shootFlag = true;
+            this.transform.LookAt(2 * transform.position - player.transform.position);
+        }
+
+        // Move and shoot
+        else if ((player.transform.position - this.transform.position).sqrMagnitude < shootDistance)
+        {
+            pursueFlag = true;
+            shootFlag = true;
+            this.transform.LookAt(2 * transform.position - player.transform.position);
+        }
+
+        // Pursue without shooting
+        else if ((player.transform.position - this.transform.position).sqrMagnitude < pursueDistance)
+        {
+            pursueFlag = true;
+            shootFlag = false;
+        }
+
+        else
+        {
+            pursueFlag = false;
+            shootFlag = false;
+        }
     }
 
     private IEnumerator Spawn(float time)
     {
-
         yield return new WaitForSeconds(time);
         isAlive = true;
         idleFlag = true;
         this.transform.position = spawn.transform.position;
         this.transform.rotation = spawn.transform.rotation;
-
     }
 
     private void Idle()
@@ -79,52 +129,14 @@ public class Enemy : MonoBehaviour
         
     }
 
-    private void Threaten()
+    private void Pursue()
     {
         MoveTo(player.transform);
     }
 
     public void Respawn()
     {
-
         StartCoroutine(Spawn(3));
-    }
-
-    private void FixedUpdate()
-    {
-        if (isAlive) CheckForThreat();
-    }
-
-    private void CheckForThreat()
-    {
-        if (!player) {
-            threatFlag = false;
-            shootFlag = false;
-            weapon.StopShoot();
-            return;
-        }
-
-        if ((player.transform.position - this.transform.position).sqrMagnitude < 10 * 10)
-        {
-            moveFlag = false;
-            threatFlag = false;
-            this.transform.LookAt(2 * transform.position - player.transform.position);
-            shootFlag = true;
-            
-        }
-
-        else if ((player.transform.position - this.transform.position).sqrMagnitude < 18 * 18)
-        {
-            threatFlag = true;
-            moveFlag = true;
-        }
-        
-        else
-        {
-            threatFlag = false;
-            shootFlag = false;
-            weapon.StopShoot();
-        }
     }
 
     //Logic to move towards player
@@ -153,16 +165,16 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            StartCoroutine(flashRed());
+            StartCoroutine(flashRed(1/6f));
             //enemyAnimator.Play("gothit");
         }
     }
 
-    private IEnumerator flashRed()
+    private IEnumerator flashRed(float duration)
     {
         var temp = this.GetComponent<Renderer>().material.color;
         this.GetComponent<Renderer>().material.color = Color.red;
-        yield return new WaitForSeconds(1/6f);
+        yield return new WaitForSeconds(duration);
         this.GetComponent<Renderer>().material.color = temp;
     }
 
@@ -170,13 +182,15 @@ public class Enemy : MonoBehaviour
     {
         isAlive = false;
         idleFlag = false;
-        threatFlag = false;
-        moveFlag = false;
+        pursueFlag = false;
         shootFlag = false;
+
         //enemyAnimator.Stop();
         //enemyAnimator.Play("gothit");
-        this.GetComponent<Renderer>().material.color = Color.red;
-        yield return new WaitForSeconds(1);
+        StartCoroutine(flashRed(2f));
+
+        yield return new WaitForSeconds(1/3f);
         this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 }
