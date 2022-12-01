@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletModel: {fileID: 513574475239023015, guid: 0b88c3849cc76e64f89410c20a63c00c,
     type: 3}
-  flashFX: {fileID: 0}
+  flashFX: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
   muzzleOffset: 1
   isAutomatic: 0
   rateOfFire: 300
