@@ -273,6 +273,7 @@ MonoBehaviour:
   rateOfFire: 600
   spread: 20
   numberOfProjectiles: 1
+  isEquipped: 0
 --- !u!1 &4383094550529499876
 GameObject:
   m_ObjectHideFlags: 0
