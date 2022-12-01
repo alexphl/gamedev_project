@@ -11,9 +11,9 @@ public class Enemy : MonoBehaviour
     private int pursueDistance = 420;    // distance at which AI sees player
     private int minPlayerDistance = 75;  // how close the AI can get (smaller = closer)
     private int shootDistance; // Enemies begin shooting at half their pursuit distance
-
     private float moveSpeed;    // these are derived from speed
     private float moveShootSpeed;
+    private Color ogColor; // used for damage effects, derived at runtime
 
     private bool isAlive;
     private bool pursueFlag;
@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
         StartCoroutine(Spawn(0));
 
         this.GetComponent<Renderer>().material.color = Color.blue;
+        ogColor = this.GetComponent<Renderer>().material.color;
     }
 
     void Update()
@@ -172,10 +173,9 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator flashRed(float duration)
     {
-        var temp = this.GetComponent<Renderer>().material.color;
         this.GetComponent<Renderer>().material.color = Color.red;
         yield return new WaitForSeconds(duration);
-        this.GetComponent<Renderer>().material.color = temp;
+        this.GetComponent<Renderer>().material.color = ogColor;
     }
 
     private IEnumerator Die()
