@@ -15,7 +15,16 @@ public class Player : MonoBehaviour
     private void Start()
     {
         if (!spawn) {
-            spawn = transform;
+            GameObject parent = GameObject.Find("Spawns_Generated");
+            if (!parent) {
+                parent = new GameObject();
+                parent.name = "Spawns_Generated";
+            }
+
+            spawn = new GameObject().transform;
+            spawn.name = "PlayerSpawn";
+            spawn.position = this.transform.position;
+            spawn.parent = parent.transform;
         }
 
         startingHealth = health;

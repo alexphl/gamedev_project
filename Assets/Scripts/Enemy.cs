@@ -28,7 +28,18 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        if (!spawn) spawn = this.transform;
+        if (!spawn) {
+            GameObject parent = GameObject.Find("Spawns_Generated");
+            if (!parent) {
+                parent = new GameObject();
+                parent.name = "Spawns_Generated";
+            }
+
+            spawn = new GameObject().transform;
+            spawn.name = "EnemySpawn";
+            spawn.position = this.transform.position;
+            spawn.parent = parent.transform;
+        }
 
         moveSpeed = speed;
         moveShootSpeed = moveSpeed / 2;
