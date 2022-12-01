@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _ALPHABLEND_ON
-  - _FADING_ON
+  - _EMISSION
   m_InvalidKeywords:
   - _USE_GRADIENT_ON
   m_LightmapFlags: 0
@@ -62,26 +62,26 @@ Material:
     - _BlendOp: 0
     - _BumpScale: 1
     - _CameraFadingEnabled: 0
-    - _CameraFarFadeDistance: 2
-    - _CameraNearFadeDistance: 1
+    - _CameraFarFadeDistance: 1000
+    - _CameraNearFadeDistance: 100
     - _ColorMode: 0
-    - _Cull: 0
+    - _Cull: 2
     - _Cutoff: 0
     - _DisplaceAmount: 1.5
-    - _DistortionBlend: 0.5
+    - _DistortionBlend: 1
     - _DistortionEnabled: 0
-    - _DistortionStrength: 1
-    - _DistortionStrengthScaled: 0
+    - _DistortionStrength: 100
+    - _DistortionStrengthScaled: 10
     - _DstBlend: 1
     - _EdgeSize: 0.2
-    - _EmissionEnabled: 0
+    - _EmissionEnabled: 1
     - _FlipbookMode: 0
     - _Glossiness: 0.5
     - _LightingEnabled: 0
     - _Metallic: 0
     - _Mode: 4
     - _NoiseStrength: 0.4
-    - _SoftParticlesEnabled: 1
+    - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
     - _SoftParticlesNearFadeDistance: 0
     - _SrcBlend: 5
@@ -94,6 +94,6 @@ Material:
     - _ColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _EdgeColor1: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 4, g: 2.3574986, b: 0, a: 1}
-    - _SoftParticleFadeParams: {r: 0, g: 1, b: 0, a: 0}
+    - _EmissionColor: {r: 3.6981132, g: 3.498898, b: 2.982912, a: 1}
+    - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
