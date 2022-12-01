@@ -22,12 +22,14 @@ public class Enemy : MonoBehaviour
 
     //private Animation enemyAnimator;
     public GameObject player;
-    public GameObject spawn;
+    private Transform spawn;    // This was made optional. Set to public if needed.
     public Rigidbody body;
     public EnemyWeapon weapon;
 
     void Start()
     {
+        if (!spawn) spawn = this.transform;
+
         moveSpeed = speed;
         moveShootSpeed = moveSpeed / 2;
 
@@ -116,8 +118,8 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(time);
         isAlive = true;
         idleFlag = true;
-        this.transform.position = spawn.transform.position;
-        this.transform.rotation = spawn.transform.rotation;
+        this.transform.position = spawn.position;
+        this.transform.rotation = spawn.rotation;
     }
 
     private void Idle()
