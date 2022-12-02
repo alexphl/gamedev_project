@@ -146,6 +146,8 @@ MonoBehaviour:
   timeBeforeRegen: 5
   isDead: 0
   spawn: {fileID: 0}
+  playerHUD: {fileID: 2837753752603951005, guid: 2be3269291252439b9509890b1263763,
+    type: 3}
   invincibility: 500
 --- !u!114 &4068684539881066461
 MonoBehaviour:

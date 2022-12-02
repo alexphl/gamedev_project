@@ -15,7 +15,9 @@ public class Player : MonoBehaviour
     private float health = 100f;
     private float shield; // actual player shield
     private float timer = 0f;
+
     public Transform spawn;
+    public HUD_Controller playerHUD;
 
     public float invincibility = 500f;
     private bool canBeHit = true;
@@ -34,7 +36,7 @@ public class Player : MonoBehaviour
             spawn.position = this.transform.position;
             spawn.parent = parent.transform;
         }
-        
+
         Spawn();
     }
 
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
 
         if (timer == 0 && shield > 0) {
             shield = shield < maxShield ? shield + shieldRegenRate : maxShield;
+            playerHUD.SetShield(shield);
         }
     }
 
@@ -56,6 +59,7 @@ public class Player : MonoBehaviour
             }
             else {
                 health -= damage;
+                playerHUD.SetHealth(health);
 
                 if (health <= 0) StartCoroutine(Die());
             }
@@ -85,6 +89,8 @@ public class Player : MonoBehaviour
     private void Spawn()
     { 
         this.GetComponent<Renderer>().material.color = Color.green;
+        playerHUD.SetMaxHealth(maxHealth);
+        playerHUD.SetMaxShield(maxShield);
         health = maxHealth;
         shield = maxShield;
         transform.position = spawn.position;
