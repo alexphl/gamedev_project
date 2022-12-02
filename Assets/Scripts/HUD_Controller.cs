@@ -8,6 +8,7 @@ public class HUD_Controller : MonoBehaviour
     public HUD_BarController healthBar;
     public HUD_BarController shieldBar;
     public PopUp deathScreen;
+    public PopUp_Text textMessage;
 
     public void SetHealth(float val) {
         healthBar.SetValue(val);
@@ -15,6 +16,7 @@ public class HUD_Controller : MonoBehaviour
 
     public void SetMaxHealth(float val) {
         healthBar.SetMax(val);
+        textMessage.setText("sfsdfs");
     }
 
     public void SetShield(float val) {
@@ -29,6 +31,19 @@ public class HUD_Controller : MonoBehaviour
         deathScreen.Show();
         yield return new WaitForSeconds(timer);
         deathScreen.Hide();
+    }
+
+    public void showTextMessage() {
+        textMessage.Show();
+    }
+
+    public void showTextMessage(string message) {
+        textMessage.setText(message);
+        textMessage.Show();
+    }
+
+    public void hideTextMessage() {
+        textMessage.Hide();
     }
 
 }
