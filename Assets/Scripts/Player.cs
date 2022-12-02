@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
         canBeHit = true;
     }
 
-    public IEnumerator Die()
+    public void Die()
     {
         isDead = true;
         Spawn();
