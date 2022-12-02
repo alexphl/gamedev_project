@@ -22,17 +22,18 @@ public class Throwable : MonoBehaviour {
         Collider[] affectedObjects = Physics.OverlapSphere(transform.position, detonationRadius); // gets detonation affected gameobjects
 
         foreach (Collider affectedObject in affectedObjects) {
+            if(affectedObject.transform.tag == "Enemy")
+            {
+                affectedObject.transform.GetComponent<Enemy>().GetHit(damage);
+            }
+            else if (affectedObject.transform.tag == "Player")
+            {
+                affectedObject.transform.GetComponent<Player>().GetHit(damage);
+            }
+
             Rigidbody rb = affectedObject.GetComponent<Rigidbody>();
             if (rb) {
                 rb.AddExplosionForce(detonationForce, transform.position, detonationRadius);
-                if(rb.gameObject.tag == "Enemy")
-                {
-                    rb.gameObject.GetComponent<Enemy>().GetHit(damage);
-                }
-                else if (rb.gameObject.tag == "Player")
-                {
-                    rb.transform.GetComponent<Player>().GetHit(damage);
-                }
             }
 
             // damage objects - TODO
