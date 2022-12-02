@@ -550,7 +550,7 @@ PrefabInstance:
     - target: {fileID: 87295862336690168, guid: 34c5749ad4924441aa495837ad76a49c,
         type: 3}
       propertyPath: m_UseSpriteMesh
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 87295862336690168, guid: 34c5749ad4924441aa495837ad76a49c,
         type: 3}
@@ -669,13 +669,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8069381343561075155, guid: 34c5749ad4924441aa495837ad76a49c,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 880
+      objectReference: {fileID: 0}
+    - target: {fileID: 8069381343561075155, guid: 34c5749ad4924441aa495837ad76a49c,
+        type: 3}
       propertyPath: m_SizeDelta.y
-      value: 80
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 8069381343561075155, guid: 34c5749ad4924441aa495837ad76a49c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 47
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34c5749ad4924441aa495837ad76a49c, type: 3}
