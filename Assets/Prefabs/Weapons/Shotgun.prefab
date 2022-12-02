@@ -184,6 +184,8 @@ MonoBehaviour:
   bulletModel: {fileID: 5913501915493138972, guid: cec714cc8aa08d54d89c74b0df397d81,
     type: 3}
   flashFX: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
+  droppedModel: {fileID: 3718404167638983065, guid: c4c61ca8207217c4583fb4b440090705,
+    type: 3}
   muzzleOffset: 1.3
   isAutomatic: 0
   rateOfFire: 100
