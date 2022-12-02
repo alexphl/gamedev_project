@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Throwable : MonoBehaviour {
     public GameObject detonationFX;
-    public float damage = 1f;
+    public float damage = 80f;
     public float fuseTime = 3f; // time before it detonates
     public float detonationRadius = 4f;
     public float detonationForce = 100f; // force applied to affected gameobjects from detonation
@@ -23,11 +23,15 @@ public class Throwable : MonoBehaviour {
 
         foreach (Collider affectedObject in affectedObjects) {
             Rigidbody rb = affectedObject.GetComponent<Rigidbody>();
-            if (rb != null) {
+            if (rb) {
                 rb.AddExplosionForce(detonationForce, transform.position, detonationRadius);
                 if(rb.gameObject.tag == "Enemy")
                 {
-                    rb.gameObject.GetComponent<Enemy>().GetHit();
+                    rb.gameObject.GetComponent<Enemy>().GetHit(damage);
+                }
+                else if (rb.gameObject.tag == "Player")
+                {
+                    rb.transform.GetComponent<Player>().GetHit(damage);
                 }
             }
 

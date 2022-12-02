@@ -177,10 +177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bd3ff4e960f89468054fd350cf35e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
   speed: 20
-  spawn: {fileID: 1867335270472802989}
-  health: 3
+  health: 60
+  player: {fileID: 0}
+  body: {fileID: 0}
   weapon: {fileID: 3647778557101848285}
 --- !u!54 &1867335270506261274
 Rigidbody:

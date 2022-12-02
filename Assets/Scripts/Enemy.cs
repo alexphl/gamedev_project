@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed;
-    public int health = 1;
+    public float health = 100f;
 
     private int pursueDistance = 420;    // distance at which AI sees player
     private int minPlayerDistance = 75;  // how close the AI can get (smaller = closer)
@@ -170,10 +170,10 @@ public class Enemy : MonoBehaviour
         body.MoveRotation(Quaternion.LookRotation(-movement));
     }
 
-    public void GetHit()
+    public void GetHit(float damage)
     {
-        health--;
-        if (health == 0)
+        health -= damage;
+        if (health <= 0f)
         {
             StartCoroutine(Die());
         }

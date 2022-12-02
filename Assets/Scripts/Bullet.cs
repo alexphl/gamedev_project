@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour {
             //Debug.Log(hit.transform.name);
             if(hit.transform.tag == "Enemy")
             {
-                hit.transform.GetComponent<Enemy>().GetHit();
+                hit.transform.GetComponent<Enemy>().GetHit(damage);
             }
             else if (hit.transform.tag == "Player")
             {
