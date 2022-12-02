@@ -5,8 +5,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int health;
-    int startingHealth;
+    public float maxHealth = 100f;
+    public float maxShield = 50f; // max shield value
+    public float shieldRegenRate = 0.1f; // how much shield regenerates per frame
+    public float timeBeforeRegen = 5f; // time before shield regen takes place
+
+    public bool isDead = false; // public so it can easily accessible by other scripts
+
+    private float health = 100f;
+    private float shield; // actual player shield
+    private float timer = 0f;
     public Transform spawn;
 
     public float invincibility = 500f;
@@ -26,21 +34,33 @@ public class Player : MonoBehaviour
             spawn.position = this.transform.position;
             spawn.parent = parent.transform;
         }
-
-        startingHealth = health;
+        
         Spawn();
     }
 
-    public void GetHit()
+    void Update() {
+        timer = timer > 0 ? timer - Time.deltaTime : 0;
+
+        if (timer == 0 && shield > 0) {
+            shield = shield < maxShield ? shield + shieldRegenRate : maxShield;
+        }
+    }
+
+    public void GetHit(float damage)
     {
         if (canBeHit)
         {
-            health--;
-            StartCoroutine(Invincibility());
-            if (health <= 0)
-            {
-                StartCoroutine(Die());
+            timer = timeBeforeRegen;
+            if (shield > 0f) {
+                shield -= damage;
             }
+            else {
+                health -= damage;
+
+                if (health <= 0) StartCoroutine(Die());
+            }
+
+            StartCoroutine(Invincibility());
         }
     }
 
@@ -65,7 +85,8 @@ public class Player : MonoBehaviour
     private void Spawn()
     { 
         this.GetComponent<Renderer>().material.color = Color.green;
-        health = startingHealth;
+        health = maxHealth;
+        shield = maxShield;
         transform.position = spawn.position;
     }
 

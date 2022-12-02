@@ -23,13 +23,7 @@ public class Bullet : MonoBehaviour {
             }
             else if (hit.transform.tag == "Player")
             {
-                hit.transform.GetComponent<Player>().GetHit();
-            }
-            // We've hit player, deduce health/shield
-            if (hit.transform.gameObject.CompareTag("Player")) {
-                HealthShield healthScript = hit.transform.gameObject.GetComponent<HealthShield>();
-
-                if (healthScript) healthScript.DoDamage(damage);
+                hit.transform.GetComponent<Player>().GetHit(damage);
             }
             Destroy(gameObject);
         }
