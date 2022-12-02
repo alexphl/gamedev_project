@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
             timer = timeBeforeRegen;
             if (shield > 0f) {
                 shield -= damage;
+                playerHUD.SetShield(shield);
             }
             else {
                 health -= damage;

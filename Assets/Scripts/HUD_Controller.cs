@@ -14,7 +14,6 @@ public class HUD_Controller : MonoBehaviour
 
     public void SetMaxHealth(float val) {
         healthBar.SetMax(val);
-        healthBar.SetValue(val);
     }
 
     public void SetShield(float val) {
@@ -23,6 +22,5 @@ public class HUD_Controller : MonoBehaviour
 
     public void SetMaxShield(float val) {
         shieldBar.SetMax(val);
-        shieldBar.SetValue(val);
     }
 }
