@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5571172300431819763}
   - component: {fileID: 4068684539881066461}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,10 +144,9 @@ MonoBehaviour:
   maxShield: 50
   shieldRegenRate: 0.1
   timeBeforeRegen: 5
-  isDead: 0
   spawn: {fileID: 0}
-  playerHUD: {fileID: 2837753752603951005, guid: 2be3269291252439b9509890b1263763,
-    type: 3}
+  playerHUD: {fileID: 0}
+  respawnTimer: 3
   invincibility: 500
 --- !u!114 &4068684539881066461
 MonoBehaviour:

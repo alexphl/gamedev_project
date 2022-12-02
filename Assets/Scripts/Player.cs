@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public float shieldRegenRate = 0.1f; // how much shield regenerates per frame
     public float timeBeforeRegen = 5f; // time before shield regen takes place
 
-    public bool isDead = false; // public so it can easily accessible by other scripts
+    private bool isDead = false;
 
     private float health = 100f;
     private float shield; // actual player shield
@@ -19,14 +19,17 @@ public class Player : MonoBehaviour
     public Transform spawn;
     public HUD_Controller playerHUD;
 
+    public int respawnTimer = 3;
     public float invincibility = 500f;
     private bool canBeHit = true;
 
     private void Start()
     {
-        if (!spawn) {
+        if (!spawn)
+        {
             GameObject parent = GameObject.Find("Spawns_Generated");
-            if (!parent) {
+            if (!parent)
+            {
                 parent = new GameObject();
                 parent.name = "Spawns_Generated";
             }
@@ -37,13 +40,16 @@ public class Player : MonoBehaviour
             spawn.parent = parent.transform;
         }
 
+        if (!playerHUD) playerHUD = GameObject.Find("HUD Overlay").GetComponent<HUD_Controller>();
         Spawn();
     }
 
-    void Update() {
+    void Update()
+    {
         timer = timer > 0 ? timer - Time.deltaTime : 0;
 
-        if (timer == 0 && shield > 0) {
+        if (timer == 0 && shield > 0)
+        {
             shield = shield < maxShield ? shield + shieldRegenRate : maxShield;
             playerHUD.SetShield(shield);
         }
@@ -54,15 +60,17 @@ public class Player : MonoBehaviour
         if (canBeHit)
         {
             timer = timeBeforeRegen;
-            if (shield > 0f) {
+            if (shield > 0f)
+            {
                 shield -= damage;
                 playerHUD.SetShield(shield);
             }
-            else {
+            else
+            {
                 health -= damage;
                 playerHUD.SetHealth(health);
 
-                if (health <= 0) StartCoroutine(Die());
+                if (health <= 0) Die();
             }
 
             StartCoroutine(Invincibility());
@@ -73,29 +81,27 @@ public class Player : MonoBehaviour
     {
         canBeHit = false;
         this.GetComponent<Renderer>().material.color = Color.red;
-        yield return new WaitForSeconds(invincibility/1000);
+        yield return new WaitForSeconds(invincibility / 1000);
         this.GetComponent<Renderer>().material.color = Color.green;
         canBeHit = true;
     }
 
-    private IEnumerator Die()
+    public IEnumerator Die()
     {
-        //enemyAnimator.Stop();
-        //enemyAnimator.Play("gothit");
-        this.GetComponent<Renderer>().material.color = Color.red;
-        yield return new WaitForSeconds(0.5f);
+        isDead = true;
         Spawn();
     }
 
     private void Spawn()
-    { 
-        this.GetComponent<Renderer>().material.color = Color.green;
+    {
         playerHUD.SetMaxHealth(maxHealth);
         playerHUD.SetMaxShield(maxShield);
+
         health = maxHealth;
         shield = maxShield;
+
+        isDead = false;
+        this.GetComponent<Renderer>().material.color = Color.green;
         transform.position = spawn.position;
     }
-
 }
-

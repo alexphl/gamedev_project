@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+        if (!target) target = GameObject.Find("Player").transform;
         //Cursor.lockState = CursorLockMode.Locked;
     }
 
