@@ -6,8 +6,8 @@ public class WeaponPickup : MonoBehaviour {
     public GameObject weapon;
 
     // Start is called before the first frame update
-    private void OnTriggerEnter(Collider other) {
-        if (other.transform.tag == "Player") {
+    private void OnTriggerStay(Collider other) {
+        if (other.transform.tag == "Player" && Input.GetButtonDown("Equip")) {
             gameObject.SetActive(false);
             foreach (Transform child in other.transform) {
                 if (weapon == child.gameObject) {

@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equippedOffset: {x: 0.55, y: 0.65, z: 0.55}
   dequippedOffset: {x: 0, y: 0, z: 0}
-  dropOffset: {x: 4, y: 0, z: 4}
+  dropOffset: {x: -1, y: 0, z: -1}
 --- !u!1 &6648957259035996896
 GameObject:
   m_ObjectHideFlags: 0
