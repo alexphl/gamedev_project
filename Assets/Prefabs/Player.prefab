@@ -146,7 +146,7 @@ MonoBehaviour:
   timeBeforeRegen: 5
   spawn: {fileID: 0}
   playerHUD: {fileID: 0}
-  respawnTimer: 3
+  respawnTimer: 0
   invincibility: 500
 --- !u!114 &4068684539881066461
 MonoBehaviour:

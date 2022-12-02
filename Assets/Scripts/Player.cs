@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     public Transform spawn;
     public HUD_Controller playerHUD;
 
-    public int respawnTimer = 3;
+    public int respawnTimer = 0;
     public float invincibility = 500f;
     private bool canBeHit = true;
 
@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         }
 
         if (!playerHUD) playerHUD = GameObject.Find("HUD Overlay").GetComponent<HUD_Controller>();
-        Spawn();
+        StartCoroutine(Spawn(0));
     }
 
     void Update()
@@ -89,18 +89,21 @@ public class Player : MonoBehaviour
     public void Die()
     {
         isDead = true;
-        Spawn();
+        StartCoroutine(Spawn(respawnTimer));
+        StartCoroutine(playerHUD.ShowDeathScreen(3));
     }
 
-    private void Spawn()
+    private IEnumerator Spawn(int timer)
     {
+        yield return new WaitForSeconds(timer);
+        isDead = false;
+
         playerHUD.SetMaxHealth(maxHealth);
         playerHUD.SetMaxShield(maxShield);
 
         health = maxHealth;
         shield = maxShield;
 
-        isDead = false;
         this.GetComponent<Renderer>().material.color = Color.green;
         transform.position = spawn.position;
     }
