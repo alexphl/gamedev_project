@@ -5,16 +5,18 @@ using UnityEngine;
 public class Throwable : MonoBehaviour {
     public GameObject detonationFX;
     public float damage = 80f;
-    public float fuseTime = 3f; // time before it detonates
+    public int fuseTime = 3; // time before it detonates
     public float detonationRadius = 4f;
     public float detonationForce = 100f; // force applied to affected gameobjects from detonation
 
-    // Update is called once per frame
-    void Update() {
-        fuseTime -= Time.deltaTime;
-        if (fuseTime <= 0f) {
-            Detonate();
-        }
+    void Start() {
+        StartCoroutine(DetonateTimer());
+    }
+
+    private IEnumerator DetonateTimer()
+    {
+        yield return new WaitForSeconds(fuseTime);
+        Detonate();
     }
 
     void Detonate() {
