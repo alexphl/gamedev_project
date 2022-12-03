@@ -14,12 +14,19 @@ public class PlayerControl : MonoBehaviour
     public float gravity = 9.8f;
     public float rotationSpeed;
 
+    private bool canRoll = false;
+
     private Vector3 moveHorizontal = Vector3.zero;
     private Vector3 moveVertical = Vector3.zero;
 
+    Player playerScript;
+
     void Start() {
+        playerScript = gameObject.GetComponent<Player>();
+
         camera = Camera.main;
         controller = GetComponent<CharacterController>();
+        canRoll = true;
     }
 
     // Update is called once per frame
@@ -27,6 +34,10 @@ public class PlayerControl : MonoBehaviour
     {
         Move();
         LookAtCursor();
+
+        if (Input.GetButtonDown("Roll") && canRoll) {
+            StartCoroutine(DashRoll());
+        }
     }
 
     private void Move()
@@ -65,5 +76,23 @@ public class PlayerControl : MonoBehaviour
         else {
             return (valid: false, lookDir: lookDir);
         }
+    }
+
+    private IEnumerator DashRoll() {
+        // Set a cooldown for equipped qeapons
+        for (int i = 0; i < transform.childCount - 2; i++) {
+            transform.GetChild(i+2).gameObject.GetComponent<Weapon>().setCooldown(0.6f);
+        }
+
+        canRoll = false;
+        playerScript.canBeHit = false;
+        speed += 10;
+        yield return new WaitForSeconds(1/6f);
+        speed -= 16;
+        playerScript.canBeHit = true;
+        yield return new WaitForSeconds(1/3f);
+        speed += 6;
+        yield return new WaitForSeconds(3/2f);
+        canRoll = true;
     }
 }

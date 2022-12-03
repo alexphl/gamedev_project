@@ -60,4 +60,8 @@ public class Weapon : MonoBehaviour
             projectileTilt.y += Random.Range(-spread, spread);
         }
     }
+
+    public void setCooldown(float cooldown) {
+        this.cooldown = cooldown;
+    }
 }

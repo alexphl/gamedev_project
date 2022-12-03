@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
     public int respawnTimer = 0;
     public float invincibility = 500f;
-    private bool canBeHit = true;
+    public bool canBeHit = true;
 
     private void Start()
     {
