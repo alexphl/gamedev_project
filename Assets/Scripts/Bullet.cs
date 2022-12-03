@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour {
     public float velocity = 0.2f;
     public int timeToLive = 5;
 
+    public bool bossBullet = false;
+
     void Start() {
         StartCoroutine(DestroyTimer(timeToLive));
     }
@@ -31,19 +33,21 @@ public class Bullet : MonoBehaviour {
         {
             hit.transform.GetComponent<Player>().GetHit(damage);
         }
-        else if (hit.transform.tag == "Boss")
+        else if (!bossBullet && hit.transform.tag == "Boss")
         {
             hit.transform.GetComponent<Boss>().GetHit(damage);
         }
-        else if (hit.transform.tag == "Boss2")
+        else if (!bossBullet && hit.transform.tag == "Boss2")
         {
             hit.transform.GetComponent<Boss2>().GetHit(damage);
         }
-        else if (hit.transform.tag == "Boss3")
+        else if (!bossBullet && hit.transform.tag == "Boss3")
         {
             hit.transform.GetComponent<Boss3>().GetHit(damage);
         }
 
-        if (hit.transform.tag != "Projectile") Destroy(gameObject);
+        if (!bossBullet && hit.transform.tag != "Projectile" || bossBullet && hit.transform.tag == "Player" || hit.transform.tag == "Untagged") {
+            Destroy(gameObject);
+        }
     }
 }

@@ -11,12 +11,20 @@ public class HUD_BarController : MonoBehaviour
         slider = GetComponent<Slider>();
     }
 
-    public void SetValue (float val) {
+    public void SetValue(float val) {
         slider.value = val;
     }
 
-    public void SetMax (float val) {
+    public void SetMax(float val) {
         slider.maxValue = val;
         slider.value = val;
+    }
+
+    public void Show() {
+        gameObject.SetActive(true);
+    }
+
+    public void Hide() {
+        gameObject.SetActive(false);
     }
 }

@@ -7,8 +7,14 @@ public class HUD_Controller : MonoBehaviour
 {
     public HUD_BarController healthBar;
     public HUD_BarController shieldBar;
+    public HUD_BarController bossBar;
     public PopUp deathScreen;
     public PopUp_Text textMessage;
+
+    void Start()
+    {
+        bossBar.Hide();
+    }
 
     public void SetHealth(float val) {
         healthBar.SetValue(val);
@@ -43,6 +49,19 @@ public class HUD_Controller : MonoBehaviour
 
     public void hideTextMessage() {
         textMessage.Hide();
+    }
+
+    public void showBossBar(float maxHealth) {
+        bossBar.SetMax(maxHealth);
+        bossBar.Show();
+    }
+
+    public void hideBossBar() {
+        bossBar.Hide();
+    }
+
+    public void setBossHealth(float val) {
+        bossBar.SetValue(val);
     }
 
 }

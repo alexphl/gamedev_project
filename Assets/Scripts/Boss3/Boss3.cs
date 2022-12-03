@@ -17,12 +17,15 @@ public class Boss3 : MonoBehaviour
     private int currentPhase;
     private int totalPhases = 3; //CHANGE
 
-    
+    public HUD_Controller playerHUD;
 
     private void Start()
     {
+        if (!playerHUD) playerHUD = GameObject.Find("HUD Overlay").GetComponent<HUD_Controller>();
+
         if(isMainBoss) currentPhase = bossMan.phaseFlag;
         health = totalHealth;
+        if(isMainBoss) playerHUD.showBossBar(totalHealth);
         ogColor = this.GetComponent<Renderer>().material.color;
         Debug.Log(currentPhase);
         
@@ -46,6 +49,7 @@ public class Boss3 : MonoBehaviour
             {
                 if (isMainBoss) bossMan.gameObject.SetActive(false);
                 else gameObject.SetActive(false);
+                if(isMainBoss) playerHUD.hideBossBar();
             }
             else
             {
@@ -62,6 +66,8 @@ public class Boss3 : MonoBehaviour
         {
             StartCoroutine(flashBlue(1 / 6f));
         }
+
+        if(isMainBoss) playerHUD.setBossHealth(health);
     }
     private IEnumerator flashRed(float duration)
     {

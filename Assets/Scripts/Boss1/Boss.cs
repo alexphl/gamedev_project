@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    
     private Color ogColor;
 
     public BossManager1 bossMan;
@@ -17,21 +16,24 @@ public class Boss : MonoBehaviour
     private int currentPhase;
     private int totalPhases = 3; //CHANGE
 
-    
+    public HUD_Controller playerHUD;
 
     private void Start()
     {
+        if (!playerHUD) playerHUD = GameObject.Find("HUD Overlay").GetComponent<HUD_Controller>();
+
         if(isMainBoss) currentPhase = bossMan.phaseFlag;
         health = totalHealth;
+        if(isMainBoss) playerHUD.showBossBar(totalHealth);
         ogColor = this.GetComponent<Renderer>().material.color;
-        Debug.Log(currentPhase);
-        
     }
+
     private void OnEnable()
     {
         health = totalHealth;
         if(isMainBoss) currentPhase = 1;
     }
+
     private void Update()
     {
         transform.Rotate(Vector3.up * (RotationSpeed * Time.deltaTime));
@@ -46,6 +48,7 @@ public class Boss : MonoBehaviour
             {
                 if (isMainBoss) bossMan.gameObject.SetActive(false);
                 else gameObject.SetActive(false);
+                if(isMainBoss) playerHUD.hideBossBar();
             }
             else
             {
@@ -62,7 +65,10 @@ public class Boss : MonoBehaviour
         {
             StartCoroutine(flashBlue(1 / 6f));
         }
+
+        if(isMainBoss) playerHUD.setBossHealth(health);
     }
+
     private IEnumerator flashRed(float duration)
     {
         this.GetComponent<Renderer>().material.color = Color.red;
