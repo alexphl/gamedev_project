@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detonationFX: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
-  damage: 1
+  damage: 75
   fuseTime: 3
   detonationRadius: 5
   detonationForce: 500

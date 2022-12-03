@@ -34,12 +34,6 @@ public class SurvivalManager : MonoBehaviour
             SpawnEnemies();
             timer = spawnTimer;
         }
-
-        // TODO: This should really be done elsewhere
-        if (player && player.GetComponent<Player>().health <= 0)
-        {
-            Destroy(player);
-        }
     }
 
     private void SpawnEnemies()

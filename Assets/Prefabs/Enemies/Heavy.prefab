@@ -185,6 +185,7 @@ MonoBehaviour:
   bulletModel: {fileID: 5913501915493138972, guid: cec714cc8aa08d54d89c74b0df397d81,
     type: 3}
   flashFX: {fileID: 1743301284569550, guid: ad2ab49d0a2a17148bd51c93d977bdbc, type: 3}
+  droppedModel: {fileID: 0}
   muzzleOffset: 1
   isAutomatic: 0
   rateOfFire: 100
@@ -324,10 +325,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bd3ff4e960f89468054fd350cf35e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: 0
   speed: 4
-  spawn: {fileID: 8284936891401831967}
-  health: 10
+  health: 200
+  player: {fileID: 0}
+  body: {fileID: 0}
   weapon: {fileID: 6453547183752368751}
 --- !u!54 &8284936891368378280
 Rigidbody:

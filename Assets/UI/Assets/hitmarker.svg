@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="31px" viewBox="0 0 30 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Aim</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round">
+        <g id="Artboard" transform="translate(-40.000000, -66.000000)" fill="#FFFFFF" stroke="#000000">
+            <g id="Aim" transform="translate(55.000000, 81.482486) rotate(45.000000) translate(-55.000000, -81.482486) translate(45.500000, 71.982486)">
+                <path d="M9.5,12.2536389 L10.5,13.3618896 L10.5,19.5 L8.5,19.5 L8.5,13.3618896 L9.5,12.2536389 Z" id="Rectangle"></path>
+                <path d="M16,5.75363889 L17,6.8618896 L17,13 L15,13 L15,6.8618896 L16,5.75363889 Z" id="Rectangle" transform="translate(16.000000, 9.500000) rotate(-90.000000) translate(-16.000000, -9.500000) "></path>
+                <path d="M3,5.75363889 L4,6.8618896 L4,13 L2,13 L2,6.8618896 L3,5.75363889 Z" id="Rectangle" transform="translate(3.000000, 9.500000) scale(-1, 1) rotate(-90.000000) translate(-3.000000, -9.500000) "></path>
+                <path d="M9.5,-0.746361113 L10.5,0.361889601 L10.5,6.5 L8.5,6.5 L8.5,0.361889601 L9.5,-0.746361113 Z" id="Rectangle" transform="translate(9.500000, 3.000000) scale(1, -1) translate(-9.500000, -3.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

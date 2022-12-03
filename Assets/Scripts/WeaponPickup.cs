@@ -2,35 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponPickup : MonoBehaviour
-{
-    public Weapon weapon;
+public class WeaponPickup : MonoBehaviour {
+    public GameObject weapon;
+    public HUD_Controller playerHUD;
+
+    void Start() {
+        if (!playerHUD) playerHUD = GameObject.Find("HUD Overlay").GetComponent<HUD_Controller>();
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.transform.tag == "Player") {
+            playerHUD.showTextMessage("E to Equip " + weapon.name);
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.transform.tag == "Player") {
+            playerHUD.hideTextMessage();
+        }
+    }
+
     // Start is called before the first frame update
-    private void OnTriggerEnter(Collider other)
-    {
-      
-            //Debug.Log("check");
-        if (other.transform.tag == "Player")
-        {
+    private void OnTriggerStay(Collider other) {
+        if (other.transform.tag == "Player" && Input.GetButtonDown("Equip")) {
             gameObject.SetActive(false);
-            foreach (Transform transform in other.transform)
-            {
-                if (transform.CompareTag("Weapon"))
-                {
-                    weapon.transform.SetParent(other.transform);
-                    weapon.transform.position = transform.position;
-                    weapon.transform.rotation = transform.rotation;
-                    weapon.transform.localScale = transform.localScale;
-                    weapon.isEquipped = true;
-                    Destroy(transform.gameObject);
-                    break;
+            foreach (Transform child in other.transform) {
+                if (weapon == child.gameObject) {
+                    Destroy(gameObject);
+                    return;
                 }
             }
-            
-
-
+            Instantiate(weapon, other.transform);
+            Destroy(gameObject);
+            playerHUD.hideTextMessage();
         }
-        
     }
-    
 }
