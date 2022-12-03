@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
 {
     public GameObject bulletModel;
     public GameObject flashFX;
+    public GameObject droppedModel;
     public float muzzleOffset = 1f; // how much more in front is the muzzle relative to weapon
     public bool isAutomatic = false;
     public float rateOfFire = 100f;

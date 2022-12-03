@@ -58,9 +58,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 50
-  field of view: 65
+  near clip plane: 3
+  far clip plane: 60
+  field of view: 68
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
-  m_Dithering: 0
+  m_Dithering: 1
   m_ClearDepth: 1
   m_AllowXRRendering: 1
   m_RequiresDepthTexture: 0
@@ -131,5 +131,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d6b4f489ab094dba8bd9cd5da0734b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  offset: {x: 0, y: -15, z: 1.5}
+  target: {fileID: 6648957258008109197, guid: 8a856ae033347f24aa8b84a911249c62, type: 3}
+  offset: {x: 0, y: -18.5, z: 1.5}

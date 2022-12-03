@@ -5,14 +5,15 @@ using UnityEngine;
 // Simple script to destroy explosion prefab use it in every explosion effect so that the prefab
 // destroys itself after effect is played
 public class DestroyGameObject : MonoBehaviour {
-    public float timer = 4f;
+    public float timer = 4;
 
-    // Update is called once per frame
-    void Update() {
-        if (timer <= 0) {
-            Destroy(gameObject);
-        }
+    void Start() {
+        StartCoroutine(DestroyTimer());
+    }
 
-        timer -= Time.deltaTime;
+    private IEnumerator DestroyTimer()
+    {
+        yield return new WaitForSeconds(timer);
+        Destroy(gameObject);
     }
 }

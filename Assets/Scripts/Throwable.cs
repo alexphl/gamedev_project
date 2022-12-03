@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Throwable : MonoBehaviour {
     public GameObject detonationFX;
-    public float damage = 1f;
-    public float fuseTime = 3f; // time before it detonates
+    public float damage = 80f;
+    public int fuseTime = 3; // time before it detonates
     public float detonationRadius = 4f;
     public float detonationForce = 100f; // force applied to affected gameobjects from detonation
 
-    // Update is called once per frame
-    void Update() {
-        fuseTime -= Time.deltaTime;
-        if (fuseTime <= 0f) {
-            Detonate();
-        }
+    void Start() {
+        StartCoroutine(DetonateTimer());
+    }
+
+    private IEnumerator DetonateTimer()
+    {
+        yield return new WaitForSeconds(fuseTime);
+        Detonate();
     }
 
     void Detonate() {
@@ -22,13 +24,18 @@ public class Throwable : MonoBehaviour {
         Collider[] affectedObjects = Physics.OverlapSphere(transform.position, detonationRadius); // gets detonation affected gameobjects
 
         foreach (Collider affectedObject in affectedObjects) {
+            if(affectedObject.transform.tag == "Enemy")
+            {
+                affectedObject.transform.GetComponent<Enemy>().GetHit(damage);
+            }
+            else if (affectedObject.transform.tag == "Player")
+            {
+                affectedObject.transform.GetComponent<Player>().GetHit(damage);
+            }
+
             Rigidbody rb = affectedObject.GetComponent<Rigidbody>();
-            if (rb != null) {
+            if (rb) {
                 rb.AddExplosionForce(detonationForce, transform.position, detonationRadius);
-                if(rb.gameObject.tag == "Enemy")
-                {
-                    rb.gameObject.GetComponent<Enemy>().GetHit();
-                }
             }
 
             // damage objects - TODO

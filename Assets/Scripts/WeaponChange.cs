@@ -6,6 +6,7 @@ public class WeaponChange : MonoBehaviour {
 
     public Vector3 equippedOffset = Vector3.zero; // where the equiped weapon is going to be relative to player
     public Vector3 dequippedOffset = Vector3.zero; // where the other weapon is going to be relative to player
+    public Vector3 dropOffset = Vector3.zero; // where the replaced weapon pickup is spawned relative to the player
 
     private List<GameObject> weaponInventory = new List<GameObject>();
     private int initialChildCount = 0;
@@ -14,8 +15,17 @@ public class WeaponChange : MonoBehaviour {
     private bool inventoryUpdated = false;
     private bool isWeaponInventoryFull = false;
 
+    private GameObject pickupParentContainer; // The parent game object for weapon drops
+
     // Start is called before the first frame update
     void Start() {
+        // Find Weapon Pickups object container, create one if doesn't exist
+        pickupParentContainer = GameObject.Find("Weapon Pickups");
+        if (!pickupParentContainer) {
+                pickupParentContainer = new GameObject();
+                pickupParentContainer.name = "Weapon Pickups";
+        }
+
         initialChildCount = transform.childCount;
         weaponInventory.Clear();
     }
@@ -47,6 +57,7 @@ public class WeaponChange : MonoBehaviour {
             weaponInventory[2].transform.rotation = replacedWeapon.transform.rotation;
             weaponInventory[2].GetComponent<Weapon>().isEquipped = true;
             weaponInventory.RemoveAt(currentWeapon);
+            DropWeapon(replacedWeapon);
             Destroy(replacedWeapon);
             currentWeapon = 1;
             nextWeapon = 0;
@@ -120,5 +131,11 @@ public class WeaponChange : MonoBehaviour {
         weaponInventory[weaponToDequip].transform.Rotate(45, 90, 0, Space.Self);
 
         weaponInventory[weaponToDequip].GetComponent<Weapon>().isEquipped = false;
+    }
+
+    // Spawns a new weapon pickup
+    void DropWeapon(GameObject weapon) {
+        GameObject weaponDrop = Instantiate(weapon.GetComponent<Weapon>().droppedModel, transform.position + dropOffset, Quaternion.identity) as GameObject;
+        weaponDrop.transform.parent = pickupParentContainer.transform;
     }
 }
