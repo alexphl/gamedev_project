@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
     {
         timer = timer > 0 ? timer - Time.deltaTime : 0;
 
-        if (timer == 0 && shield > 0)
+        if (timer == 0)
         {
             shield = shield < maxShield ? shield + shieldRegenRate : maxShield;
             playerHUD.SetShield(shield);
