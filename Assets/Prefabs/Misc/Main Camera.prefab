@@ -132,4 +132,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 6648957258008109197, guid: 8a856ae033347f24aa8b84a911249c62, type: 3}
-  offset: {x: 0, y: -18.5, z: 1.5}
+  offset: {x: 0, y: -26, z: 1.5}
