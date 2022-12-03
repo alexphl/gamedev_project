@@ -31,6 +31,18 @@ public class Bullet : MonoBehaviour {
         {
             hit.transform.GetComponent<Player>().GetHit(damage);
         }
+        else if (hit.transform.tag == "Boss")
+        {
+            hit.transform.GetComponent<Boss>().GetHit(damage);
+        }
+        else if (hit.transform.tag == "Boss2")
+        {
+            hit.transform.GetComponent<Boss2>().GetHit(damage);
+        }
+        else if (hit.transform.tag == "Boss3")
+        {
+            hit.transform.GetComponent<Boss3>().GetHit(damage);
+        }
 
         if (hit.transform.tag != "Projectile") Destroy(gameObject);
     }

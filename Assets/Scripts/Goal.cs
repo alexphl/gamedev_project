@@ -16,7 +16,7 @@ public class Goal : MonoBehaviour
         if (other.gameObject.GetComponent<Player>())
         {
             
-            SceneManager.LoadScene("Survival");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             
         }
     }

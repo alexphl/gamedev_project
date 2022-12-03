@@ -16,7 +16,6 @@ public class HUD_Controller : MonoBehaviour
 
     public void SetMaxHealth(float val) {
         healthBar.SetMax(val);
-        textMessage.setText("sfsdfs");
     }
 
     public void SetShield(float val) {
