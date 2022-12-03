@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter(Collider hit) {
+    void OnTriggerEnter(Collider hit) {
         if(hit.transform.tag == "Enemy")
         {
             hit.transform.GetComponent<Enemy>().GetHit(damage);
@@ -32,6 +32,6 @@ public class Bullet : MonoBehaviour {
             hit.transform.GetComponent<Player>().GetHit(damage);
         }
 
-        Destroy(gameObject);
+        if (hit.transform.tag != "Projectile") Destroy(gameObject);
     }
 }
