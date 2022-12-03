@@ -5,32 +5,33 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
     public float damage = 1f;
     public float velocity = 0.2f;
-    public float timeToLive = 5f;
+    public int timeToLive = 5;
 
-    private float raycastLength = 0.5f;
-    private float timer = 0f;
+    void Start() {
+        StartCoroutine(DestroyTimer(timeToLive));
+    }
 
     // Update is called once per frame
     void Update() {
         transform.position += transform.up * velocity * Time.deltaTime;
+    }
 
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.up, out hit, raycastLength)) {
-            //Debug.Log(hit.transform.name);
-            if(hit.transform.tag == "Enemy")
-            {
-                hit.transform.GetComponent<Enemy>().GetHit(damage);
-            }
-            else if (hit.transform.tag == "Player")
-            {
-                hit.transform.GetComponent<Player>().GetHit(damage);
-            }
-            Destroy(gameObject);
+    private IEnumerator DestroyTimer(int ttl)
+    {
+        yield return new WaitForSeconds(ttl);
+        Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter(Collider hit) {
+        if(hit.transform.tag == "Enemy")
+        {
+            hit.transform.GetComponent<Enemy>().GetHit(damage);
+        }
+        else if (hit.transform.tag == "Player")
+        {
+            hit.transform.GetComponent<Player>().GetHit(damage);
         }
 
-        timer += Time.deltaTime;
-        if (timer >= timeToLive) {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

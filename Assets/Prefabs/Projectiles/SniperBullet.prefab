@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2026735502580498546}
   - component: {fileID: 2342495254117770150}
   - component: {fileID: 2577071738443096459}
+  - component: {fileID: -6584437200442567801}
   m_Layer: 0
   m_Name: SniperBullet
   m_TagString: Projectile
@@ -199,3 +200,17 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!64 &-6584437200442567801
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513574475239023015}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7068521988759839827, guid: 210c6d18cd6c1aa4b9f782e280831e3b, type: 3}

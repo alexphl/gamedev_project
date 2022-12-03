@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5264715493693989833}
   - component: {fileID: 962141474923602754}
   - component: {fileID: 6299618139905672488}
+  - component: {fileID: 6213018639765025860}
   m_Layer: 0
   m_Name: ShotgunPellet
   m_TagString: Projectile
@@ -99,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   velocity: 30
-  timeToLive: 0.8
+  timeToLive: 1
 --- !u!96 &6299618139905672488
 TrailRenderer:
   serializedVersion: 2
@@ -208,3 +209,17 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 1
   m_Emitting: 1
+--- !u!64 &6213018639765025860
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5913501915493138972}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8876522209881343685, guid: ab9a805febf68ae479b85383056396d8, type: 3}

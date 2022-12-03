@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3925020601955387754}
   - component: {fileID: 781980672454929086}
   - component: {fileID: 3269654207634621151}
+  - component: {fileID: 910797125775949176}
   m_Layer: 0
   m_Name: RifleBullet
   m_TagString: Projectile
@@ -208,3 +209,17 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!64 &910797125775949176
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3276514969009236159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7068521988759839827, guid: 210c6d18cd6c1aa4b9f782e280831e3b, type: 3}
