@@ -32,6 +32,18 @@ public class Throwable : MonoBehaviour {
             {
                 affectedObject.transform.GetComponent<Player>().GetHit(damage);
             }
+            else if (affectedObject.transform.tag == "Boss")
+            {
+                affectedObject.transform.GetComponent<Boss>().GetHit(damage);
+            }
+            else if (affectedObject.transform.tag == "Boss2")
+            {
+                affectedObject.transform.GetComponent<Boss2>().GetHit(damage);
+            }
+            else if (affectedObject.transform.tag == "Boss3")
+            {
+                affectedObject.transform.GetComponent<Boss3>().GetHit(damage);
+            }
 
             Rigidbody rb = affectedObject.GetComponent<Rigidbody>();
             if (rb) {
