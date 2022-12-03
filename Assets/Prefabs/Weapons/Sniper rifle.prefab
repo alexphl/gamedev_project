@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 8776844871001444997}
   - component: {fileID: 8786504359595995761}
   - component: {fileID: 195714225583311997}
+  - component: {fileID: 610940126044848654}
   m_Layer: 0
   m_Name: Sniper rifle
   m_TagString: Weapon
@@ -278,6 +279,25 @@ MonoBehaviour:
   spread: 20
   numberOfProjectiles: 1
   isEquipped: 0
+--- !u!114 &610940126044848654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8772223827690560699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e7ca3867b9be548a4420c0a80130d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletModel: {fileID: 0}
+  flashFX: {fileID: 0}
+  muzzleOffset: 1
+  isAutomatic: 0
+  rateOfFire: 100
+  spread: 20
+  numberOfProjectiles: 1
 --- !u!1 &8772359184727492515
 GameObject:
   m_ObjectHideFlags: 0

@@ -178,6 +178,8 @@ GameObject:
   - component: {fileID: 4368903953740468390}
   - component: {fileID: 4360062183985144900}
   - component: {fileID: 8121341906301329371}
+  - component: {fileID: 5221264861015543926}
+  - component: {fileID: 4728851654554604521}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Weapon
@@ -276,6 +278,44 @@ MonoBehaviour:
   spread: 20
   numberOfProjectiles: 1
   isEquipped: 0
+--- !u!114 &5221264861015543926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382988317985441018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e7ca3867b9be548a4420c0a80130d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletModel: {fileID: 0}
+  flashFX: {fileID: 0}
+  muzzleOffset: 1
+  isAutomatic: 0
+  rateOfFire: 100
+  spread: 20
+  numberOfProjectiles: 1
+--- !u!114 &4728851654554604521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4382988317985441018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e7ca3867b9be548a4420c0a80130d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletModel: {fileID: 0}
+  flashFX: {fileID: 0}
+  muzzleOffset: 1
+  isAutomatic: 0
+  rateOfFire: 100
+  spread: 20
+  numberOfProjectiles: 1
 --- !u!1 &4383094550529499876
 GameObject:
   m_ObjectHideFlags: 0

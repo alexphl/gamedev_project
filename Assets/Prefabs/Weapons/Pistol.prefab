@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 1176089324497912931}
   - component: {fileID: 1184532910687332103}
   - component: {fileID: 1167869168053104354}
+  - component: {fileID: 3598163138310428691}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Weapon
@@ -277,6 +278,25 @@ MonoBehaviour:
   spread: 20
   numberOfProjectiles: 1
   isEquipped: 0
+--- !u!114 &3598163138310428691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162502971562246327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e7ca3867b9be548a4420c0a80130d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletModel: {fileID: 0}
+  flashFX: {fileID: 0}
+  muzzleOffset: 1
+  isAutomatic: 0
+  rateOfFire: 100
+  spread: 20
+  numberOfProjectiles: 1
 --- !u!1 &1162624828652245559
 GameObject:
   m_ObjectHideFlags: 0
