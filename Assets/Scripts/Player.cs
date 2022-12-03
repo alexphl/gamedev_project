@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float timeBeforeRegen = 5f; // time before shield regen takes place
 
     private bool isDead = false;
+    public bool deathFlag = false;
 
     private float health = 100f;
     private float shield; // actual player shield
@@ -89,6 +90,7 @@ public class Player : MonoBehaviour
     public void Die()
     {
         isDead = true;
+        deathFlag = true;
         StartCoroutine(Spawn(respawnTimer));
         StartCoroutine(playerHUD.ShowDeathScreen(3));
     }
@@ -97,6 +99,7 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(timer);
         isDead = false;
+        deathFlag = false;
 
         playerHUD.SetMaxHealth(maxHealth);
         playerHUD.SetMaxShield(maxShield);
