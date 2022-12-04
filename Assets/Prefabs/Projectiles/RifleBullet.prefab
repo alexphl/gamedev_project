@@ -99,9 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9491c990ebe48d04db9fa013932f9917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 2500
   velocity: 40
   timeToLive: 2
+  bossBullet: 0
 --- !u!96 &3269654207634621151
 TrailRenderer:
   serializedVersion: 2
