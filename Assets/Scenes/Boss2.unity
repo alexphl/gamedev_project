@@ -6526,6 +6526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79d5dbafa9bfb34cbddb37e0722b4f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFinalLevel: 0
+  playerHUD: {fileID: 0}
 --- !u!1 &1354143883
 GameObject:
   m_ObjectHideFlags: 0
@@ -9836,7 +9838,7 @@ MonoBehaviour:
   bossMan: {fileID: 1211668564}
   RotationSpeed: 0
   isMainBoss: 1
-  totalHealth: 10000
+  totalHealth: 7500
   playerHUD: {fileID: 0}
 --- !u!136 &2091843626
 CapsuleCollider:

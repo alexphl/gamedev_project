@@ -37,6 +37,7 @@ public class Boss2 : MonoBehaviour
     private void Update()
     {
         transform.Rotate(Vector3.up * (RotationSpeed * Time.deltaTime));
+        if (transform.position.y < -100) transform.parent.gameObject.SetActive(false);
     }
 
     public void GetHit(float damage)

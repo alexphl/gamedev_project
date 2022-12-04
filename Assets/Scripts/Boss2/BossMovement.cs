@@ -13,17 +13,22 @@ public class BossMovement : MonoBehaviour
     private bool helperFlag = false;
     private bool movedFlag = false;
 
+    private bool nearFlag = false;
+
     public Player player;
 
-    private float speed = 25f;
+    private float speed = 10f;
 
     public int index = 0;
 
-    
+    private void Start()
+    {
+        body = bossModel.GetComponentInChildren<Rigidbody>();
+    }
 
     private void Update()
     {
-        body = bossModel.GetComponentInChildren<Rigidbody>();
+        
         transform.LookAt(player.transform);
         MoveTo(PickDestination());
     }
@@ -54,7 +59,14 @@ public class BossMovement : MonoBehaviour
         body.MovePosition(newPosition);
 
 
-        if (Vector3.Distance(transform.position, destination.position) < 0.05) index++;
+        if (Vector3.Distance(transform.position, destination.position) < 0.1 && !nearFlag)
+        {
+            index++;
+        }
+        else
+        {
+            nearFlag = false;
+        }
     }
     public bool ChangePhase(Transform movementPoints, Transform helperPoints, int helperSize, int index)
     {
@@ -66,7 +78,7 @@ public class BossMovement : MonoBehaviour
         if (!helperFlag)
         {
             this.index = index;
-            speed = 40;
+            
             helperFlag = true;
         }
         if (helperFlag)

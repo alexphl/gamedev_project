@@ -30,6 +30,9 @@ public class BossManager2 : MonoBehaviour
 
     private void OnDisable()
     {
+        door.SetActive(false);
+        door1.SetActive(false);
+        door2.SetActive(false);
         door3.SetActive(false);
     }
 
