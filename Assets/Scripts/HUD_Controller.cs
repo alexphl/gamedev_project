@@ -10,6 +10,8 @@ public class HUD_Controller : MonoBehaviour
     public HUD_BarController bossBar;
     public PopUp deathScreen;
     public PopUp_Text textMessage;
+    public PopUp_Text grenadeCounter;
+    public PopUp_Text Weapons;
 
     void Start()
     {

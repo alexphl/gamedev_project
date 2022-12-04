@@ -6,10 +6,11 @@ using TMPro;
 public class PopUp_Text : MonoBehaviour
 {
     public TMP_Text text;
+    public bool startHidden = false;
 
     void Start()
     {
-        gameObject.SetActive(false);
+        if (startHidden) gameObject.SetActive(false);
     }
 
     public void Show() {
