@@ -9,21 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Demo.unity
     guid: c883ead07f7330244b90f158ff8ebed6
   - enabled: 1
-    path: Assets/Scenes/Boss1.unity
-    guid: fea38bba1208d5b48832b76ab6f0a794
-  - enabled: 1
-    path: Assets/Scenes/Survival.unity
-    guid: b65ac40e97da68e47b520a2243c16e2a
-  - enabled: 1
-    path: Assets/Scenes/Boss2.unity
-    guid: 6504f0c77babaac4cbac2971b670f049
-  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 609bb830a908b544483a471f3202c642
+  - enabled: 1
+    path: Assets/Scenes/Boss1.unity
+    guid: fea38bba1208d5b48832b76ab6f0a794
   - enabled: 1
     path: Assets/Scenes/Level 2.unity
     guid: 6c0ebbd9895808b47a67dd5267018480
   - enabled: 1
+    path: Assets/Scenes/Boss2.unity
+    guid: 6504f0c77babaac4cbac2971b670f049
+  - enabled: 1
     path: Assets/Scenes/Boss3.unity
     guid: bbdfef63ad0c9534c9bdfd096385d298
+  - enabled: 1
+    path: Assets/Scenes/Survival.unity
+    guid: b65ac40e97da68e47b520a2243c16e2a
   m_configObjects: {}
