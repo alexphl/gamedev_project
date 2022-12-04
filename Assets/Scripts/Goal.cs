@@ -22,8 +22,14 @@ public class Goal : MonoBehaviour
             if (!isFinalLevel) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             else {
                 playerHUD.showTextMessage("Congratulations! You beat the game.");
+                StartCoroutine(LoadSurvival());
             }
         }
+    }
+
+    private IEnumerator LoadSurvival() {
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
 
