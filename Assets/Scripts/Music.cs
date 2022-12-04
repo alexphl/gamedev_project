@@ -10,6 +10,6 @@ using UnityEngine;
         {
         audioData = GetComponent<AudioSource>();
         audioData.Play(0);
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
         }
     }

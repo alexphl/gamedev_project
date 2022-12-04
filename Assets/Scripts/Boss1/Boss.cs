@@ -14,7 +14,7 @@ public class Boss : MonoBehaviour
     private float health;
     public float totalHealth;
     private int currentPhase;
-    private int totalPhases = 3; //CHANGE
+    private int totalPhases = 6; //CHANGE
 
     public HUD_Controller playerHUD;
 

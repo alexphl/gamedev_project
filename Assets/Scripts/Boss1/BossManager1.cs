@@ -52,6 +52,7 @@ public class BossManager1 : MonoBehaviour
         }
         else if(phaseFlag == 3)
         {
+            Debug.Log("Phase 3");
             if (index == -1)
             {
                 index = 0;
