@@ -30,7 +30,6 @@ public class EnemyWeapon : MonoBehaviour
             }
             else if (slowFlag == false)
             {
-                //Debug.Log("Shootin");
                 slowFlag = true;
                 StartCoroutine(SlowShoot());
             }

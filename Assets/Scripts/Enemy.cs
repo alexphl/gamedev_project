@@ -204,6 +204,6 @@ public class Enemy : MonoBehaviour
 
         yield return new WaitForSeconds(1/3f);
         this.gameObject.SetActive(false);
-        Destroy(this.gameObject);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }

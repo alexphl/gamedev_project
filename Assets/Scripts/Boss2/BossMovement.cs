@@ -43,7 +43,6 @@ public class BossMovement : MonoBehaviour
     private void MoveTo(Transform destination)
     {
         if (!destination) return;
-        Debug.Log(destination);
         Transform objectTransform = destination.transform;
         body.velocity = new Vector3(0, body.velocity.y, 0);
         float distance = speed * Time.deltaTime;

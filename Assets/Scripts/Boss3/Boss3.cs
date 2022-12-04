@@ -27,14 +27,14 @@ public class Boss3 : MonoBehaviour
         health = totalHealth;
         if(isMainBoss) playerHUD.showBossBar(totalHealth);
         ogColor = this.GetComponent<Renderer>().material.color;
-        Debug.Log(currentPhase);
-        
     }
+
     private void OnEnable()
     {
         health = totalHealth;
         if(isMainBoss) currentPhase = 1;
     }
+
     private void Update()
     {
         transform.Rotate(Vector3.up * (RotationSpeed * Time.deltaTime));
@@ -62,6 +62,7 @@ public class Boss3 : MonoBehaviour
                 }
             }
         }
+
         else
         {
             StartCoroutine(flashBlue(1 / 6f));
@@ -69,6 +70,7 @@ public class Boss3 : MonoBehaviour
 
         if(isMainBoss) playerHUD.setBossHealth(health);
     }
+    
     private IEnumerator flashRed(float duration)
     {
         this.GetComponent<Renderer>().material.color = Color.red;
