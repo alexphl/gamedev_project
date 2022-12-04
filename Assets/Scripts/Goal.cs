@@ -7,12 +7,13 @@ public class Goal : MonoBehaviour
 {
     private AssetBundle myLoadedAssetBundle;
     private string[] scenePaths;
+    public bool isFinalLevel = false;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Player>())
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (!isFinalLevel) SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
